@@ -1,8 +1,8 @@
 //Creating a interface for my theme in TS
 
-import 'styled-components'
+import 'styled-components';
 
-import { theme } from './Theme.jsx'
+import { theme } from './Theme.jsx';
 
 export type Theme = typeof theme; //Create a type with my custom theme
 

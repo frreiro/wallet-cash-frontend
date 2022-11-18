@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 //Creating a new global styles that resets some default css configs 
 const GlobalStyles = createGlobalStyle`
@@ -21,4 +21,4 @@ const GlobalStyles = createGlobalStyle`
 	
 `;
 
-export default GlobalStyles
+export default GlobalStyles;
