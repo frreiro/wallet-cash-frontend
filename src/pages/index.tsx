@@ -7,8 +7,7 @@ import { authSchema } from '../schemas/auth.schema';
 import {toast} from 'react-toastify';
 import { useRouter } from 'next/router';
 import { User } from '../interfaces/User';
-import { useSigninUser } from '../hooks/api/useSigninUser';
-import { TokenContext } from '../context/TokenContext';
+import { AuthContext } from '../context/AuthContext';
 
 
 
@@ -19,22 +18,12 @@ export default function Login() {
 	});
 
 	const router = useRouter();
-	const {setToken} = useContext(TokenContext);
-
-	const {
-		siginIsSending,
-		userToken,
-		singinUser
-	} = useSigninUser();
-
-	useEffect(() => {
-		setToken(userToken);
-	}, [userToken]);
+	const {signin} = useContext(AuthContext);
 	
 	
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
 		try {
-			await singinUser({username: data.username, password: data.password});
+			await signin({username: data.username, password: data.password});
 			toast.success('Welcome to NG_CASH');
 			router.push('/wallet');
 		} catch (e) {

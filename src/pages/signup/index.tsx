@@ -5,9 +5,9 @@ import {joiResolver} from '@hookform/resolvers/joi';
 import {toast} from 'react-toastify';
 import { useRouter } from 'next/router';
 import { authSchema } from '../../schemas/auth.schema';
-import { useCreateUser } from '../../hooks/api/useCreatUser';
 import { User } from '../../interfaces/User';
 import { Main, SubmitButton } from '../../styles/Auth/auth';
+import { createUser } from '../../services/user.api';
 
 
 
@@ -18,16 +18,13 @@ export default function Siginup() {
 	});
 
 	const router = useRouter();
-	const {
-		isSendingUser,
-		createUser
-	} = useCreateUser();
-
-	
 	
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
 		try {
-			await createUser({username: data.username, password: data.password});
+			await createUser({
+				username: data.username,
+				password: data.password
+			});
 			toast.success('Successfully registred');
 			router.push('/login');
 		} catch (e) {

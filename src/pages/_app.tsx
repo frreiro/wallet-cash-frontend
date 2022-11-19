@@ -3,20 +3,20 @@ import GlobalStyles from '../styles/GlobalStyles';
 import { Theme } from '../styles/Theme';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { TokenProvider } from '../context/TokenContext';
+import { AuthProvider } from '../context/AuthContext';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<Theme>
 			<GlobalStyles/>
-			<TokenProvider>
+			<AuthProvider>
 				<Component {...pageProps} />
 				<ToastContainer
 					pauseOnFocusLoss={false}
 					pauseOnHover={false}
 					theme="dark"
 				/>
-			</TokenProvider>
+			</AuthProvider>
 		</Theme>
 	);
 }
