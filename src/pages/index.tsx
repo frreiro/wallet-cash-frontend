@@ -5,6 +5,7 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import {joiResolver} from '@hookform/resolvers/joi';
 import { authSchema } from '../schemas/auth.schema';
 import {toast} from 'react-toastify';
+import { useCreateUser } from '../hooks/api/useCreatUser';
 
 export interface User {
 	username:string,
@@ -18,8 +19,25 @@ export default function Login() {
 		criteriaMode: 'all'
 	});
 
-	const onFormSubmit: SubmitHandler<User> = (data) => {
-		console.log(data);
+
+	const {
+		isSendingUser,
+		createUser
+	} = useCreateUser();
+
+	//console.log('loading',isSendingUser);
+	
+	
+	const onFormSubmit: SubmitHandler<User> = async  (data) => {
+		try {
+			await createUser({username: data.username, password: data.password});
+			toast.success('User created successfully');
+		} catch (e) {
+			toast.error('Could not create user');
+			
+		}
+
+		
 	};
 
 	const onFormError: SubmitErrorHandler<User> = (errors) => {
