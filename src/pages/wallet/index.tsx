@@ -1,20 +1,27 @@
 import { GetServerSideProps } from 'next';
 import {  useState } from 'react';
 import {parseCookies} from 'nookies';
-import { Account } from '../../interfaces/Account';
+import { AccountInfo } from '../../interfaces/Account';
 import { fetchAccount } from '../../services/wallet.api';
+import { Banner3D } from '../../components/banner3D';
+import { BannerBalance, BannerBalanceContainer, Title, WalletContainer } from '../../styles/wallet/balance';
+import { cashParser } from '../../utils/cashParser';
+import { Balance } from '../../components/bannerBalance';
 
 
-export default function Wallet({accountData}: {accountData: Account} ){
-	const [refresh, setRefresh] = useState(false);
+export default function Wallet({accountData}: {accountData: AccountInfo} ){
 	//console.log(accountData);
 
 	return (
-		<>
-			<h1>Wallet</h1>
-			<h1>Balance: {accountData.balance}</h1>
-			<button onClick={() => setRefresh(!refresh)}>Click</button>
-		</>
+		<WalletContainer>
+			<Title>hello, user</Title>
+			<div className='divider'>
+				<Balance balance={accountData.balance}/>
+				
+			</div>
+
+			
+		</WalletContainer>
 	);
 }
 	

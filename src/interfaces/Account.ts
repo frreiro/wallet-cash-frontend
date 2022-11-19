@@ -1,4 +1,6 @@
-export interface Account{
-	id: number;
+export interface AccountInfo{
+	accountId: number;
+	username: string;
+	userId: number;
 	balance: number;
 }
