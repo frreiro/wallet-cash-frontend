@@ -2,22 +2,22 @@ import { AxiosError, AxiosResponse,  } from 'axios';
 import { any } from 'joi';
 import { useEffect, useState } from 'react';
 
+type AsyncFuncType = (...args: any[]) => Promise<any>;
 
-interface IUseAsyncPost {
-	isSending: boolean;
-	asyncFunc: (body?: any) => Promise<void>
-}
 
-const useAsyncPost =  <T extends unknown>(fetchFunction: (body?: T) => Promise<AxiosResponse | AxiosError>): IUseAsyncPost => {
+const useAsyncPost =  <T extends AsyncFuncType>(fetchFunction: T ) => {
 
 	const [isSending, setIsSending] = useState(false);
+	const [data, setData] = useState< Awaited<ReturnType<T>> | null>(null);
 	
-	const asyncFunc = async (body?: T): Promise<void> => {
+	const asyncFunc = async (...args: Parameters<T>): Promise<void> => {
 		setIsSending(true);
 		try {
-			await fetchFunction(body);
+			const dataResponse: Awaited<ReturnType<T>> = await fetchFunction(...args);
+			setData(dataResponse);
 			setIsSending(false);
 		} catch (e: any) {
+			setData(null);
 			setIsSending(false);
 			throw e;
 		}
@@ -26,7 +26,8 @@ const useAsyncPost =  <T extends unknown>(fetchFunction: (body?: T) => Promise<A
 
 	return {
 		isSending,
-		asyncFunc
+		asyncFunc,
+		data
 	};
 };
 

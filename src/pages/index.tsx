@@ -1,16 +1,15 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Main, SubmitButton } from '../styles/Auth/auth';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import {joiResolver} from '@hookform/resolvers/joi';
 import { authSchema } from '../schemas/auth.schema';
 import {toast} from 'react-toastify';
-import { useCreateUser } from '../hooks/api/useCreatUser';
+import { useRouter } from 'next/router';
+import { User } from '../interfaces/User';
+import { useSigninUser } from '../hooks/api/useSigninUser';
+import { TokenContext } from '../context/TokenContext';
 
-export interface User {
-	username:string,
-	password: string
-}
 
 
 export default function Login() {
@@ -19,22 +18,27 @@ export default function Login() {
 		criteriaMode: 'all'
 	});
 
+	const router = useRouter();
+	const {setToken} = useContext(TokenContext);
 
 	const {
-		isSendingUser,
-		createUser
-	} = useCreateUser();
+		siginIsSending,
+		userToken,
+		singinUser
+	} = useSigninUser();
 
-	//console.log('loading',isSendingUser);
+	useEffect(() => {
+		setToken(userToken);
+	}, [userToken]);
 	
 	
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
 		try {
-			await createUser({username: data.username, password: data.password});
-			toast.success('User created successfully');
+			await singinUser({username: data.username, password: data.password});
+			toast.success('Welcome to NG_CASH');
+			router.push('/wallet');
 		} catch (e) {
-			toast.error('Could not create user');
-			
+			toast.error('Could not login user');
 		}
 
 		
@@ -50,7 +54,7 @@ export default function Login() {
 			<Head>
 				<title>NG - Login</title>
 			</Head>
-			<h1>cadastro</h1>
+			<h1>Login</h1>
 
 			<form onSubmit={handleSubmit(onFormSubmit, onFormError)}>
 				<article>
@@ -64,7 +68,7 @@ export default function Login() {
 					<p>password</p>
 					<input type="password" {...register('password')}/>
 				</article>
-				<SubmitButton type="submit">Create</SubmitButton>
+				<SubmitButton type="submit">Send</SubmitButton>
 			</form>
 		</Main>
 	);
