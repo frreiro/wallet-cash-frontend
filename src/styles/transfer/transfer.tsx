@@ -9,20 +9,32 @@ const TransferTitle = styled.h1`
 	color:  ${props => props.theme.colors.primary};
 	letter-spacing:  ${props => props.theme.font.type.spaced_font};
 	font-weight: 700;
-
 `;
 
 const TransferContainer = styled.main`
 	width: 100vw;
 	height: 100vh;
-	padding: 55px 44px 0 44px;
+	position: relative;
+	padding: 75px 44px 0 44px;
 
 	
 	.divider{
+		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		align-items: center;
 		
+	}
+
+	.close{
+		width: 20px;
+		color: ${props => props.theme.colors.third};
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		cursor: pointer;
 	}
 
 `;

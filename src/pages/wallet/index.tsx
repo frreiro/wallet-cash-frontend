@@ -1,18 +1,27 @@
+import Router from 'next/router';
 import { GetServerSideProps } from 'next';
-import {parseCookies} from 'nookies';
-import { MdOutlineAddBox } from 'react-icons/md';
+import {parseCookies, destroyCookie} from 'nookies';
+import { MdOutlineAddBox, MdLogout } from 'react-icons/md';
+
 
 import { AccountInfo } from '../../interfaces/Account';
 import { Balance } from '../../components/bannerBalance';
 import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
 import { ITransaction, Transactions } from '../../components/bannerTransactions';
 import { Title, TransferText, WalletContainer } from '../../styles/wallet/wallet';
-import Router from 'next/router';
+
+
 
 export default function Wallet({accountData, transactionsData}: {accountData: AccountInfo, transactionsData: ITransaction[]} ){
+
+	const logOut = () => {
+		destroyCookie(undefined, 'ng-cash-token');
+		Router.push('/');
+	};
 	
 	return (
 		<WalletContainer>
+			<MdLogout className='logout' onClick={logOut}/>
 			<Title>hello, {accountData.username}</Title>
 			<div className='divider'>
 				<Balance balance={accountData.balance}/>

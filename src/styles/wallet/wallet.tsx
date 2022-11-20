@@ -6,6 +6,7 @@ const TransferText = styled.div`
 	display: flex;
 	justify-content: right;
 	align-items: center;
+	cursor: pointer;
 	
 	h1{
 		font-family: ${props => props.theme.font.family.primary};
@@ -38,6 +39,7 @@ const WalletContainer = styled.main`
 	width: 100vw;
 	height: 100vh;
 	padding: 55px 44px 0 44px;
+	position: relative;
 
 	
 	.divider{
@@ -45,6 +47,16 @@ const WalletContainer = styled.main`
 		flex-direction: column;
 		align-items: center;
 		
+	}
+
+	.logout{
+		font-size: ${props => props.theme.font.sizes.mobile.large};
+		color: ${props => props.theme.colors.third};
+		position: absolute;
+		top: 60px;
+		right: 50px;
+		cursor: pointer;
+
 	}
 
 `;
