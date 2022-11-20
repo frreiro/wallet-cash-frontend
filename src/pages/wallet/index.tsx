@@ -1,12 +1,13 @@
 import { GetServerSideProps } from 'next';
 import {parseCookies} from 'nookies';
-import { AccountInfo } from '../../interfaces/Account';
-import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
-import { Balance } from '../../components/bannerBalance';
-import { Title, TransferText, WalletContainer } from '../../styles/wallet/wallet';
-import { ITransaction, Transactions } from '../../components/bannerTransactions';
 import { MdOutlineAddBox } from 'react-icons/md';
 
+import { AccountInfo } from '../../interfaces/Account';
+import { Balance } from '../../components/bannerBalance';
+import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
+import { ITransaction, Transactions } from '../../components/bannerTransactions';
+import { Title, TransferText, WalletContainer } from '../../styles/wallet/wallet';
+import Router from 'next/router';
 
 export default function Wallet({accountData, transactionsData}: {accountData: AccountInfo, transactionsData: ITransaction[]} ){
 	
@@ -15,7 +16,7 @@ export default function Wallet({accountData, transactionsData}: {accountData: Ac
 			<Title>hello, {accountData.username}</Title>
 			<div className='divider'>
 				<Balance balance={accountData.balance}/>
-				<TransferText>
+				<TransferText onClick={() => Router.push('/transfer')}>
 					<h1>NEW TRANSFER</h1>
 					<MdOutlineAddBox className='add'/>
 				</TransferText>

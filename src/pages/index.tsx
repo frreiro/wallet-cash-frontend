@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import React, { useContext, useEffect } from 'react';
-import { Main, SubmitButton } from '../styles/Auth/auth';
-import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
-import {joiResolver} from '@hookform/resolvers/joi';
-import { authSchema } from '../schemas/auth.schema';
+import Router from 'next/router';
 import {toast} from 'react-toastify';
-import { useRouter } from 'next/router';
-import { User } from '../interfaces/User';
-import { AuthContext } from '../context/AuthContext';
+import React, { useContext } from 'react';
+import {joiResolver} from '@hookform/resolvers/joi';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 
+import { User } from '../interfaces/User';
+import { authSchema } from '../schemas/auth.schema';
+import { AuthContext } from '../context/AuthContext';
+import { Main, SubmitButton } from '../styles/Auth/auth';
 
 
 export default function Login() {
@@ -17,7 +17,6 @@ export default function Login() {
 		criteriaMode: 'all'
 	});
 
-	const router = useRouter();
 	const {signin} = useContext(AuthContext);
 	
 	
@@ -25,7 +24,7 @@ export default function Login() {
 		try {
 			await signin({username: data.username, password: data.password});
 			toast.success('Welcome to NG_CASH');
-			router.push('/wallet');
+			Router.push('/wallet');
 		} catch (e) {
 			toast.error('Could not login user');
 		}
