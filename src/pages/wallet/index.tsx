@@ -22,8 +22,6 @@ export default function Wallet({accountData, transactionsData}: {accountData: Ac
 				</TransferText>
 				<Transactions transactions={transactionsData} />
 			</div>
-
-			
 		</WalletContainer>
 	);
 }
