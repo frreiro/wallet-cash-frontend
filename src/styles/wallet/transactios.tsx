@@ -8,6 +8,7 @@ const BannerTransactionsHeader = styled.div`
 	margin-bottom: 29px;
 	letter-spacing: ${props => props.theme.font.type.spaced_font}; ;
 	color:  ${props => props.theme.colors.primary};	
+	position: relative;
 	
 	.money{
 		font-size: ${props => props.theme.font.sizes.mobile.x_large};

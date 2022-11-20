@@ -2,6 +2,8 @@ import { BannerTransactions, BannerTransactionsContainer, BannerTransactionsHead
 import { Banner3D } from './banner3D';
 import { MdAttachMoney } from 'react-icons/md';
 import { Transaction } from './transacation';
+import { FilterSelector } from './filterSelector';
+import { useState } from 'react';
 
 export interface ITransaction {
 	id: number,
@@ -21,6 +23,7 @@ export interface ITransaction {
 }
 
 const Transactions: React.FC<{transactions: ITransaction[]}> = ({transactions}) => {
+	const [isFilterVisible, setFilterVisible] = useState(false);
 
 	return (
 		<BannerTransactionsContainer>
@@ -29,7 +32,14 @@ const Transactions: React.FC<{transactions: ITransaction[]}> = ({transactions}) 
 					<BannerTransactionsHeader>
 						<MdAttachMoney className='money'/>
 						<h1>TRANSACTIONS</h1>
-						<button>Filter</button>
+						<button onClick={() => setFilterVisible(!isFilterVisible)}>Filter</button>
+						{
+							isFilterVisible 
+								? <FilterSelector 
+									setVisibility={() => setFilterVisible(!isFilterVisible)} 
+								/>
+								: <></>
+						}
 					</BannerTransactionsHeader>
 					<hr/>
 					{
