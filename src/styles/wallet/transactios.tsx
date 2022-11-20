@@ -37,6 +37,10 @@ const BannerTransactionsHeader = styled.div`
 const BannerTransactions= styled.article`
 	height: 100%;
 	padding: 15px 20px 0px 27px;
+	overflow: scroll;
+	::-webkit-scrollbar {
+  		display: none;
+	}
 
 	hr{
 		height: 0.1px;
@@ -48,7 +52,6 @@ const BannerTransactions= styled.article`
 //TODO: deixar a altura dinânmica
 const BannerTransactionsContainer = styled.article`
 	width: 326px;
-	height: 313px;
 	margin-top: 42px;
 	
 	`;
