@@ -1,23 +1,21 @@
 import { GetServerSideProps } from 'next';
-import {  useState } from 'react';
 import {parseCookies} from 'nookies';
 import { AccountInfo } from '../../interfaces/Account';
-import { fetchAccount } from '../../services/wallet.api';
-import { Banner3D } from '../../components/banner3D';
-import { BannerBalance, BannerBalanceContainer, Title, WalletContainer } from '../../styles/wallet/balance';
-import { cashParser } from '../../utils/cashParser';
+import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
 import { Balance } from '../../components/bannerBalance';
+import { Title, WalletContainer } from '../../styles/wallet/wallet';
+import { ITransaction, Transactions } from '../../components/bannerTransactions';
 
 
-export default function Wallet({accountData}: {accountData: AccountInfo} ){
-	//console.log(accountData);
-
+export default function Wallet({accountData, transactionsData}: {accountData: AccountInfo, transactionsData: ITransaction[]} ){
+	console.log(transactionsData);
+	
 	return (
 		<WalletContainer>
-			<Title>hello, user</Title>
+			<Title>hello, {accountData.username}</Title>
 			<div className='divider'>
 				<Balance balance={accountData.balance}/>
-				
+				<Transactions transactions={transactionsData} />
 			</div>
 
 			
@@ -39,9 +37,11 @@ export const getServerSideProps: GetServerSideProps =  async (context) => {
 	
 	
 	const data = await fetchAccount(token);
+	const dataTransactions = await fetchTransactions(token);
 	return {
 		props: {
-			accountData: data
+			accountData: data,
+			transactionsData: dataTransactions
 		}
 	};
 };

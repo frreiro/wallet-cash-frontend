@@ -6,6 +6,7 @@ const theme = {
 	colors: {
 		primary: '#252424',
 		secondary: '#FFFFFF',
+		third: '#5B5B5B',
 		red: '#D65050',
 		green: '#04B404'
 	},
