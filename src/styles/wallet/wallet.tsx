@@ -36,13 +36,13 @@ const Title = styled.h1`
 `;
 
 const WalletContainer = styled.main`
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	padding: 55px 44px 0 44px;
 	position: relative;
 
 	
-	.divider{
+	.divider-balance{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -57,6 +57,21 @@ const WalletContainer = styled.main`
 		right: 50px;
 		cursor: pointer;
 
+	}
+
+
+	@media (min-width: 760px) {
+		
+		.divider-balance{
+			flex-direction: row;
+			align-items: flex-start;
+
+			justify-content: center;
+			/*background-color: red;*/
+
+		}
+
+		
 	}
 
 `;

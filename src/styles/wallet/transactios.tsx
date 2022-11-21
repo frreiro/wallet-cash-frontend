@@ -36,11 +36,8 @@ const BannerTransactionsHeader = styled.div`
 `;
 
 const BannerTransactions= styled.article`
-	height: 100%;
+	height: 400px;
 	padding: 15px 20px 0px 27px;
-	::-webkit-scrollbar {
-		display: none;
-	}
 	
 	hr{
 		height: 0.1px;
@@ -48,18 +45,20 @@ const BannerTransactions= styled.article`
 	}
 	
 	.transactions{
-		overflow: scroll;
+		height: 300px;
+		overflow-y: scroll;
+
 		::-webkit-scrollbar {
-		display: none;
-	}
+			display: none;
+		}
 	}
 	
 `;
 
-//TODO: deixar a altura dinânmica
 const BannerTransactionsContainer = styled.article`
 	width: 326px;
 	margin-top: 42px;
+	margin-left: 30px;
 	`;
 
 

@@ -24,12 +24,14 @@ export default function Wallet({accountData, transactionsData}: {accountData: Ac
 		<WalletContainer>
 			<MdLogout className='logout' onClick={logOut}/>
 			<Title>hello, {accountData.username}</Title>
-			<div className='divider'>
-				<Balance balance={accountData.balance}/>
-				<TransferText onClick={() => Router.push('/transfer')}>
-					<h1>NEW TRANSFER</h1>
-					<MdOutlineAddBox className='add'/>
-				</TransferText>
+			<div className='divider-balance'>
+				<div>
+					<Balance balance={accountData.balance}/>
+					<TransferText onClick={() => Router.push('/transfer')}>
+						<h1>NEW TRANSFER</h1>
+						<MdOutlineAddBox className='add'/>
+					</TransferText>
+				</div>
 				<Transactions transactions={transactionsData} />
 			</div>
 		</WalletContainer>
