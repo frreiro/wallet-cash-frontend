@@ -9,7 +9,7 @@ import { Balance } from '../../components/bannerBalance';
 import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
 import { ITransaction, Transactions } from '../../components/bannerTransactions';
 import { Title, TransferText, WalletContainer } from '../../styles/wallet/wallet';
-import { Method } from '../../components/filterSelector';
+import { IFiltersTypes } from '../../components/filterSelector';
 
 
 
@@ -48,8 +48,17 @@ export const getServerSideProps: GetServerSideProps =  async (context) => {
 		};
 	}
 	
-	const {method}: {method?: Method} = context.query;
-	const dataTransactions = await fetchTransactions(token, method);
+	const {method, date}: {method?: IFiltersTypes['method'], date?:IFiltersTypes['date']} = context.query;
+	const buildQuery: IFiltersTypes = {} as IFiltersTypes; 
+	if(method){
+		buildQuery.method = method;
+	}
+
+	if(date){
+		buildQuery.date = date;
+	}
+	
+	const dataTransactions = await fetchTransactions(token, buildQuery);
 	
 	const data = await fetchAccount(token);
 	return {

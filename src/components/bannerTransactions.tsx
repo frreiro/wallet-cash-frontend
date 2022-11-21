@@ -41,18 +41,21 @@ const Transactions: React.FC<{transactions: ITransaction[]}> = ({transactions}) 
 								: <></>
 						}
 					</BannerTransactionsHeader>
-					<hr/>
-					{
-						transactions?.map((transaction) => {
-							return(
-								<Transaction 
-									key={transaction.id} 
-									transaction={transaction}
-								/>
-							);
 
-						})
-					}
+					<hr/>
+					<div className='transactions'>
+						{
+							transactions?.map((transaction) => {
+								return(
+									<Transaction 
+										key={transaction.id} 
+										transaction={transaction}
+									/>
+								);
+								
+							})
+						}
+					</div>
 				</BannerTransactions>
 			</Banner3D>
 		</BannerTransactionsContainer>

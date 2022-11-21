@@ -9,7 +9,7 @@ const BannerTransactionsHeader = styled.div`
 	letter-spacing: ${props => props.theme.font.type.spaced_font}; ;
 	color:  ${props => props.theme.colors.primary};	
 	position: relative;
-	
+
 	.money{
 		font-size: ${props => props.theme.font.sizes.mobile.x_large};
 	}
@@ -38,14 +38,20 @@ const BannerTransactionsHeader = styled.div`
 const BannerTransactions= styled.article`
 	height: 100%;
 	padding: 15px 20px 0px 27px;
-	overflow: scroll;
 	::-webkit-scrollbar {
-  		display: none;
+		display: none;
 	}
-
+	
 	hr{
 		height: 0.1px;
 		background-color: ${props => props.theme.colors.primary};
+	}
+	
+	.transactions{
+		overflow: scroll;
+		::-webkit-scrollbar {
+		display: none;
+	}
 	}
 	
 `;
@@ -54,7 +60,6 @@ const BannerTransactions= styled.article`
 const BannerTransactionsContainer = styled.article`
 	width: 326px;
 	margin-top: 42px;
-	
 	`;
 
 

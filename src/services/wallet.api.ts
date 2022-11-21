@@ -1,5 +1,5 @@
 import { ITransaction } from '../components/bannerTransactions';
-import { Method } from '../components/filterSelector';
+import { IFiltersTypes } from '../components/filterSelector';
 import { AccountInfo } from '../interfaces/Account';
 import { fetchAxios } from './api';
 
@@ -12,12 +12,10 @@ const fetchAccount = async (token: string): Promise<AccountInfo> => {
 	return response.data;
 };
 
-const fetchTransactions = async (token: string, filter?: Method): Promise<ITransaction> => {
-	let endPoint = '/transactions';
-	if(filter === 'cashin' || filter === 'cashout' || filter === 'all'){
-		endPoint = endPoint.concat(`?method=${filter}`);
-	}
-	const response = await fetchAxios.get(endPoint, {
+const fetchTransactions = async (token: string, filter?: IFiltersTypes): Promise<ITransaction> => {
+
+	const response = await fetchAxios.get('/transactions', {
+		params: filter,
 		headers: {
 			'Authorization': `Bearer ${token}`
 		}
