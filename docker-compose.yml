@@ -1,0 +1,7 @@
+services:
+  ng-cash-frontedn-application: 
+    container_name: ng-cash-frontend
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
