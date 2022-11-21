@@ -7,7 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import { FilterItem } from '../styles/transfer/filterTransfers';
 import { OpenCalendar } from '../styles/transfer/dateFilter';
-import { IFilterDate } from './filterSelector';
+import { IFilterDate } from '../interfaces/Filter';
 
 
 

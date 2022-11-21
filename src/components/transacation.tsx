@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { ITransaction } from '../interfaces/Transactions';
 import { TransactionContainer, TransactionDetails, TransactionInfo, TransactionValue } from '../styles/wallet/transaction';
 import { cashParser } from '../utils/cashParser';
-import { ITransaction } from './bannerTransactions';
 import { CustomIcon } from './customIcons';
 
 

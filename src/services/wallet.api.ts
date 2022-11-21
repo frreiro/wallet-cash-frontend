@@ -1,6 +1,6 @@
-import { ITransaction } from '../components/bannerTransactions';
-import { IFiltersTypes } from '../components/filterSelector';
 import { AccountInfo } from '../interfaces/Account';
+import { IFiltersTypes } from '../interfaces/Filter';
+import { ITransaction } from '../interfaces/Transactions';
 import { fetchAxios } from './api';
 
 const fetchAccount = async (token: string): Promise<AccountInfo> => {

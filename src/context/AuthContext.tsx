@@ -2,11 +2,8 @@ import { createContext, Dispatch, PropsWithChildren, SetStateAction, useState } 
 import { User } from '../interfaces/User';
 import { signinUser } from '../services/user.api';
 import { setCookie} from 'nookies';
+import { IAuthContext } from '../interfaces/IAuthContext';
 
-
-interface IAuthContext{
-	signin: (user: User) => Promise<void>
-}
 
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 

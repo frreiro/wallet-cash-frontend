@@ -7,9 +7,10 @@ import { MdOutlineAddBox, MdLogout } from 'react-icons/md';
 import { AccountInfo } from '../../interfaces/Account';
 import { Balance } from '../../components/bannerBalance';
 import { fetchAccount, fetchTransactions } from '../../services/wallet.api';
-import { ITransaction, Transactions } from '../../components/bannerTransactions';
+import { Transactions } from '../../components/bannerTransactions';
 import { Title, TransferText, WalletContainer } from '../../styles/wallet/wallet';
-import { IFiltersTypes } from '../../components/filterSelector';
+import { IFiltersTypes } from '../../interfaces/Filter';
+import { ITransaction } from '../../interfaces/Transactions';
 
 
 

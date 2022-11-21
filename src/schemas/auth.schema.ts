@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { User } from '../pages';
+import { User } from '../interfaces/User';
 
 const authSchema = Joi.object<User>({
 	username: Joi.string().min(3).required().messages({

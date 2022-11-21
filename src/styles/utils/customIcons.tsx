@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ICustomIconProps } from '../../components/customIcons';
+import { ICustomIconProps } from '../../interfaces/Styles/ICustomIcon';
 
 
 const IconContainer = styled.div`
