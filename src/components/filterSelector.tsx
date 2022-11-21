@@ -36,7 +36,6 @@ const FilterSelector: React.FC<IFilterSelector> = ({setVisibility}) => {
 			queryType.method = type;
 		}
 
-		console.log(queryType);
 		setVisibility();
 		Router.push({
 			pathname: '/wallet',

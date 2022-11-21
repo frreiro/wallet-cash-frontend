@@ -53,7 +53,7 @@ const WalletContainer = styled.main`
 		font-size: ${props => props.theme.font.sizes.mobile.large};
 		color: ${props => props.theme.colors.third};
 		position: absolute;
-		top: 60px;
+		top: 20px;
 		right: 50px;
 		cursor: pointer;
 
