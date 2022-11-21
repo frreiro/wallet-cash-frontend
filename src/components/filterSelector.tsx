@@ -3,20 +3,9 @@ import Router from 'next/router';
 
 import { CustomDatePicker } from './dateFilter';
 import { FilterButton, FilterContainer, FilterItem } from '../styles/transfer/filterTransfers';
+import { IFilterDate, IFilterSelector, IFiltersTypes } from '../interfaces/Filter';
 
 
-
-export interface IFilterSelector{
-	setVisibility: () => void;
-}
-export interface IFilterDate{
-	isActivated: boolean;
-	date: string | null;
-}
-export interface IFiltersTypes{
-	date?: string
-	method?: 'cashout' | 'cashin' | 'all' 
-}
 
 const FilterSelector: React.FC<IFilterSelector> = ({setVisibility}) => {
 	const [type, setType] = useState<IFiltersTypes['method']>( 'all');

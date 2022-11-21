@@ -1,17 +1,14 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { MdArrowCircleUp } from 'react-icons/md';
 import { MdArrowCircleDown } from 'react-icons/md';
+import { ITransaction } from '../interfaces/Transactions';
 
 import { IconBackground, IconContainer } from '../styles/utils/customIcons';
 
 
-export interface ICustomIconProps{
-	type: 'cash-in'| 'cash-out'
-
-}
 
 
-const CustomIcon: React.FC<ICustomIconProps> = ({type}) => {
+const CustomIcon: React.FC<{type: ITransaction['type']}> = ({type}) => {
 	return (
 		<IconContainer>
 			{type === 'cash-in'

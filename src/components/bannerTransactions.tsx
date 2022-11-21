@@ -4,23 +4,8 @@ import { MdAttachMoney } from 'react-icons/md';
 import { Transaction } from './transacation';
 import { FilterSelector } from './filterSelector';
 import { useState } from 'react';
+import { ITransaction } from '../interfaces/Transactions';
 
-export interface ITransaction {
-	id: number,
-	value: number
-	type: 'cash-in' | 'cash-out',
-	date: Date,
-	from: {
-		id: number,
-		username: string,
-		accountId: number
-	},
-	to: {
-		id: number,
-		username: string,
-		accountId: number
-	},
-}
 
 const Transactions: React.FC<{transactions: ITransaction[]}> = ({transactions}) => {
 	const [isFilterVisible, setFilterVisible] = useState(false);

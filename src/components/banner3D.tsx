@@ -1,11 +1,8 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
-import { IBanner3DProps } from '../interfaces/Styles/IBanner3Props';
+import React  from 'react';
+import { BannerProps, IBanner3DProps } from '../interfaces/Styles/IBanner3Props';
 import { DownBanner, UpBanner } from '../styles/utils/banner3D';
 
-interface BannerProps extends PropsWithChildren {
-	children: ReactNode
-	bannerTheme: IBanner3DProps['bannerTheme']
-}
+
 
 const Banner3D: React.FC<BannerProps> = (props) => {
 	return (
