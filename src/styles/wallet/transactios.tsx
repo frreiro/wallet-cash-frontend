@@ -51,6 +51,7 @@ const BannerTransactions= styled.article`
 		::-webkit-scrollbar {
 			display: none;
 		}
+		
 	}
 	
 `;

@@ -9,13 +9,14 @@ const TransferTitle = styled.h1`
 	color:  ${props => props.theme.colors.primary};
 	letter-spacing:  ${props => props.theme.font.type.spaced_font};
 	font-weight: 700;
+	margin-bottom: 25px;
 `;
 
 const TransferContainer = styled.main`
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	position: relative;
-	padding: 75px 44px 0 44px;
+	padding: 50px 44px 0 44px;
 
 	
 	.divider{

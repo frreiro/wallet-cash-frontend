@@ -86,8 +86,10 @@ const HolderInput = styled.div<IHolderContent>`
 
 
 const BannerNewTransaferContainer = styled.div`
-	width: 326px;
+	min-width: 326px;
 	height: 440px;
+
+	
 `;
 
 export {

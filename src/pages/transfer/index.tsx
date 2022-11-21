@@ -8,7 +8,7 @@ import { NewTransfer } from '../../components/bannerTransfer';
 import { TransferContainer, TransferTitle } from '../../styles/transfer/transfer';
 
 
-export default function Transafer() {
+export default function Transfer() {
 	return (
 		<TransferContainer>
 			<MdClose className='close' onClick={() => Router.push('/wallet')}/>
