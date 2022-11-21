@@ -62,9 +62,7 @@ export default function Siginup() {
 				<SubmitButton type="submit">Create</SubmitButton>
 			</form>
 			<Link href='/'>
-				<section className='link'>
-					<a>Login here</a>
-				</section>
+				<section className='link'>Login here</section>
 			</Link>
 		</Main>
 	);

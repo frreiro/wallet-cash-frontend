@@ -62,9 +62,7 @@ export default function Login() {
 				<SubmitButton type="submit">Send</SubmitButton>
 			</form>
 			<Link href='/signup'>
-				<section className='link'>
-					<a>Create account</a>
-				</section>
+				<section className='link'>Create account</section>
 			</Link>
 		</Main>
 	);
