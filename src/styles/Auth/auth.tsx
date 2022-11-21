@@ -5,13 +5,15 @@ const Main = styled.main`
 	height: 100vh;
 	background: ${props => props.theme.gradient.black_white};
 	padding: 139px 53px 266px 53px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	form{
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top:104px;
-
 	}
 	
 	article{
@@ -21,6 +23,7 @@ const Main = styled.main`
 	}
 
 	h1{
+		width: 100%;
 		font-family: ${props => props.theme.font.family.primary};
 		font-size: ${props => props.theme.font.sizes.mobile.x_large};
 		color:  ${props => props.theme.colors.secondary};
@@ -64,6 +67,33 @@ const Main = styled.main`
 		left: 15px;
 		color:  ${props => props.theme.colors.secondary};
 		font-family: ${props => props.theme.font.family.primary};
+	}
+
+	.link{
+		width: 100%;
+		text-align: center;
+		margin-top: 20px;
+		cursor: pointer;
+	}
+
+	
+	a{
+		font-family: ${props => props.theme.font.family.primary};
+		font-size: ${props => props.theme.font.sizes.mobile.small};
+		color:  ${props => props.theme.colors.secondary};
+		letter-spacing:  ${props => props.theme.font.type.spaced_font};
+		font-weight: 400;
+	}
+
+	@media (min-width: 760px) {
+		h1{
+			width: 65%;
+		}
+
+		form{
+			width: 404px;
+		}
+
 	}
 
 

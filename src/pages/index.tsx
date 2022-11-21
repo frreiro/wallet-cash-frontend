@@ -9,6 +9,7 @@ import { User } from '../interfaces/User';
 import { authSchema } from '../schemas/auth.schema';
 import { AuthContext } from '../context/AuthContext';
 import { Main, SubmitButton } from '../styles/Auth/auth';
+import Link from 'next/link';
 
 
 export default function Login() {
@@ -25,7 +26,9 @@ export default function Login() {
 			await signin({username: data.username, password: data.password});
 			toast.success('Welcome to NG_CASH');
 			Router.push('/wallet');
-		} catch (e) {
+		} catch (e:any) {
+			console.log(e);
+			toast.error(e.response.data.message);
 			toast.error('Could not login user');
 		}
 
@@ -58,6 +61,11 @@ export default function Login() {
 				</article>
 				<SubmitButton type="submit">Send</SubmitButton>
 			</form>
+			<Link href='/signup'>
+				<section className='link'>
+					<a>Create account</a>
+				</section>
+			</Link>
 		</Main>
 	);
 }

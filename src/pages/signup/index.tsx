@@ -8,7 +8,7 @@ import { authSchema } from '../../schemas/auth.schema';
 import { User } from '../../interfaces/User';
 import { Main, SubmitButton } from '../../styles/Auth/auth';
 import { createUser } from '../../services/user.api';
-
+import Link from 'next/link';
 
 
 export default function Siginup() {
@@ -27,7 +27,8 @@ export default function Siginup() {
 			});
 			toast.success('Successfully registred');
 			router.push('/login');
-		} catch (e) {
+		} catch (e:any) {
+			toast.error(e.response.data.message);
 			toast.error('Could not create user');
 		}
 
@@ -60,6 +61,11 @@ export default function Siginup() {
 				</article>
 				<SubmitButton type="submit">Create</SubmitButton>
 			</form>
+			<Link href='/'>
+				<section className='link'>
+					<a>Login here</a>
+				</section>
+			</Link>
 		</Main>
 	);
 }
