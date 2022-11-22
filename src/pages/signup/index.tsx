@@ -26,7 +26,7 @@ export default function Siginup() {
 				password: data.password
 			});
 			toast.success('Successfully registred');
-			router.push('/login');
+			router.push('/');
 		} catch (e:any) {
 			toast.error(e.response.data.message);
 			toast.error('Could not create user');
