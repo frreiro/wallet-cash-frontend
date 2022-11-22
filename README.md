@@ -47,6 +47,8 @@ This project in local mode need the backend up to work, it will use the followin
  - http://localhost:3000 -> where the frontend will be up
  - http://localhost:5000 -> backend on, used for requests
 
+[Link for backend here](https://github.com/frreiro/ng-cash-backend) 
+
 ### Development mode
 
 ```bash
@@ -64,8 +66,6 @@ $ npm run docker:start
 #or
 $ yarn run docker:start
 ```
-
-
 ## 📌 Features
 
 - [x] User signup
@@ -74,4 +74,12 @@ $ yarn run docker:start
 - [x] Read the user transactions
 - [x] Read the user account information (balance, username)
 
+## 🎨 Screenshots
+
+<p align="center">
+    <img height='400px' src="https://user-images.githubusercontent.com/98192816/203184773-ab7796fa-6713-4af2-b5fc-7d5235c27fff.png">
+    <img height='400px'src="https://user-images.githubusercontent.com/98192816/203184926-119ddda9-043f-422c-9fa6-a6f45932bc01.png">
+    <img height='400px'src="https://user-images.githubusercontent.com/98192816/203185090-b3358dea-dd7e-4dc7-8579-5ad9ad23cdef.png">
+    <img height='400px'src="https://user-images.githubusercontent.com/98192816/203184942-a24e03a7-67d7-4e64-8472-d258d4b1f17a.png">
+</p><br>
 
