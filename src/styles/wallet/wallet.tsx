@@ -26,7 +26,7 @@ const TransferText = styled.div`
 
 
 const Title = styled.h1`
-
+	width: 100%;
 	font-family: ${props => props.theme.font.family.primary};
 	font-size: ${props => props.theme.font.sizes.mobile.x_large};
 	color:  ${props => props.theme.colors.primary};
@@ -40,12 +40,12 @@ const WalletContainer = styled.main`
 	height: 100%;
 	padding: 55px 44px 0 44px;
 	position: relative;
-
 	
 	.divider-balance{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		
 	}
 
@@ -67,7 +67,6 @@ const WalletContainer = styled.main`
 			align-items: flex-start;
 
 			justify-content: center;
-			/*background-color: red;*/
 
 		}
 

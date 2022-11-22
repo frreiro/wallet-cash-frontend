@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center" >
+  <img width="150px" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b0.svg" alt="ng-logo" width="400">
+  <br>
+  <br>
+  <h1>NG Cash - Frontend</h1>
+</div>
 
-## Getting Started
+## 📝 Description
 
-First, run the development server:
+
+NG.cash is a private web wallet application that allows users to, create an account and make transactions between themselves, this project is a challenge for a job at NG.CASH.
+
+## 🚀 Technologies and Libraries
+
+- [Next](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled-components](https://styled-components.com/)
+- [Axios](https://axios-http.com/)
+- [Dayjs](https://day.js.org/)
+- [Reack-hook-form](https://react-hook-form.com/)
+- [Joi](https://joi.dev/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+## 📦 Installation
+
+Clone the repository.
 
 ```bash
-npm run dev
-# or
-yarn dev
+# https
+$ git clone https://github.com/frreiro/ng-cash-frontend
+# ssh
+$ git clone git@github.com:frreiro/ng-cash-frontend.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the dependencies.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+$ cd ng-cash-frontend && npm install
+#or
+$ cd ng-cash-frontend &&  yarn
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This project in local mode need the backend up to work, it will use the following url
+ - http://localhost:3000 -> where the frontend will be up
+ - http://localhost:5000 -> backend on, used for requests
 
-## Learn More
+### Development mode
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+$ npm run dev
+#or
+$ yarn run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Docker mode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Docker is configured to use your machine localhost as the container localhost. This option was choosed because the backend is not deployed yet, so this way was the pratice way to solve networking issues. Knowing that, to run docker just use those following command:
 
-## Deploy on Vercel
+```bash
+$ npm run docker:start
+#or
+$ yarn run docker:start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📌 Features
+
+- [x] User signup
+- [x] User login
+- [x] Create a user transfer
+- [x] Read the user transactions
+- [x] Read the user account information (balance, username)
+
+

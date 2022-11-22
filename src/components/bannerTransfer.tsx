@@ -67,7 +67,7 @@ const NewTransfer: React.FC = () => {
 						<HolderInput content={'R$'}>
 							<input
 								//type='number'
-								placeholder='100,00'
+								placeholder='0,00'
 							 {...register('value', {
 									onChange: (e) => {
 										const {value} = e.target;

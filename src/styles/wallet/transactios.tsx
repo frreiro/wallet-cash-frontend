@@ -59,7 +59,12 @@ const BannerTransactions= styled.article`
 const BannerTransactionsContainer = styled.article`
 	width: 326px;
 	margin-top: 42px;
-	margin-left: 30px;
+	
+	@media (min-width: 760px) {
+		margin-left: 30px;
+
+		
+	}
 	`;
 
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.1:5000';
+const BASE_URL = process.env.REQUEST_URL;
 
 
 const fetchAxios = axios.create({

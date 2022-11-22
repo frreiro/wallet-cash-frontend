@@ -2,7 +2,10 @@
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	output:'standalone'
+	output:'standalone',
+	env: {
+		REQUEST_URL: 'http://localhost:5000'
+	}
 };
 
 module.exports = nextConfig;
