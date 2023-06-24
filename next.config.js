@@ -4,7 +4,7 @@ const nextConfig = {
 	swcMinify: true,
 	output:'standalone',
 	env: {
-		REQUEST_URL: process.env.API_URL,
+		REQUEST_URL: 'https://ng-backend-0a0e.onrender.com',
 	}
 };
 
