@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Style } from 'util';
 
 const Main = styled.main`
 	width: 100vw;
@@ -14,6 +15,7 @@ const Main = styled.main`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
 	}
 	
 	article{
@@ -85,6 +87,7 @@ const Main = styled.main`
 		font-weight: 400;
 	}
 
+
 	@media (min-width: 760px) {
 		h1{
 			width: 65%;
@@ -99,7 +102,7 @@ const Main = styled.main`
 
 `;
 
-const SubmitButton = styled.button<{isLoading?: boolean}>`
+const SubmitButtonContainer = styled.button<{isLoading?: boolean, marginTop: number }>`
 	width: 147px;
 	height: 44px;
 	margin-top: 68px;
@@ -110,9 +113,10 @@ const SubmitButton = styled.button<{isLoading?: boolean}>`
 	display:  flex;
 	align-items: center;
 	justify-content: ${props => props.isLoading ? 'baseline' : 'center'};
+	margin-top: ${props => props.marginTop > 0 ? String(props.marginTop) : '0'}px;
 `;
 
 export {
 	Main,
-	SubmitButton
+	SubmitButtonContainer 
 };

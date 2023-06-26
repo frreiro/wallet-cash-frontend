@@ -8,10 +8,9 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import { User } from '../interfaces/User';
 import { authSchema } from '../schemas/auth.schema';
 import { AuthContext } from '../context/AuthContext';
-import { Main, SubmitButton } from '../styles/Auth/auth';
+import { Main } from '../styles/Auth/auth';
 import Link from 'next/link';
-import { InfinitySpin } from 'react-loader-spinner';
-import { theme } from '../styles/Theme';
+import { SubmitButton } from '../components/SubmitButton';
 
 
 export default function Login() {
@@ -66,16 +65,8 @@ export default function Login() {
 					<p>password</p>
 					<input type="password" {...register('password')}/>
 				</article>
-				<SubmitButton type="submit" disabled={IsLoading} isLoading={IsLoading}>
-					{
-						!IsLoading 
-							? 'Send'
-							: <InfinitySpin 
-								width='100'
-								color={theme.colors.primary}
-							/>
-					}
-				</SubmitButton>
+				<SubmitButton text={'Send'} isLoading={IsLoading} marginTop={68}/>
+
 			</form>
 			<Link href='/signup'>
 				<section className='link'>Create account</section>
