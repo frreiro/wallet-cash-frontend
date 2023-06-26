@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import {joiResolver} from '@hookform/resolvers/joi';
 import {toast} from 'react-toastify';
@@ -9,6 +9,8 @@ import { User } from '../../interfaces/User';
 import { Main, SubmitButton } from '../../styles/Auth/auth';
 import { createUser } from '../../services/user.api';
 import Link from 'next/link';
+import { InfinitySpin } from 'react-loader-spinner';
+import { theme } from '../../styles/Theme';
 
 
 export default function Siginup() {
@@ -17,9 +19,11 @@ export default function Siginup() {
 		criteriaMode: 'all'
 	});
 
+	const [IsLoading, setIsLoading] = useState(false);
 	const router = useRouter();
 	
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
+		setIsLoading(true);
 		try {
 			await createUser({
 				username: data.username,
@@ -30,6 +34,8 @@ export default function Siginup() {
 		} catch (e:any) {
 			toast.error(e.response.data.message);
 			toast.error('Could not create user');
+		}finally {
+			setIsLoading(false);
 		}
 
 		
@@ -59,7 +65,16 @@ export default function Siginup() {
 					<p>password</p>
 					<input type="password" {...register('password')}/>
 				</article>
-				<SubmitButton type="submit">Create</SubmitButton>
+				<SubmitButton type="submit" disabled={IsLoading} isLoading={IsLoading}>
+					{
+						!IsLoading 
+							? 'Create'
+							: <InfinitySpin 
+								width='100'
+								color={theme.colors.primary}
+							/>
+					}
+				</SubmitButton>
 			</form>
 			<Link href='/'>
 				<section className='link'>Login here</section>

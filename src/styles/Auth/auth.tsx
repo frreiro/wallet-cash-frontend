@@ -99,7 +99,7 @@ const Main = styled.main`
 
 `;
 
-const SubmitButton = styled.button`
+const SubmitButton = styled.button<{isLoading?: boolean}>`
 	width: 147px;
 	height: 44px;
 	margin-top: 68px;
@@ -107,6 +107,9 @@ const SubmitButton = styled.button`
 	font-size: ${props => props.theme.font.sizes.mobile.medium};
 	color:  ${props => props.theme.colors.primary};
 	font-family: ${props => props.theme.font.family.primary};
+	display:  flex;
+	align-items: center;
+	justify-content: ${props => props.isLoading ? 'baseline' : 'center'};
 `;
 
 export {
