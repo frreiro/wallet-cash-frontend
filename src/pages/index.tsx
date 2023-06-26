@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import {toast} from 'react-toastify';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {joiResolver} from '@hookform/resolvers/joi';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 
@@ -10,6 +10,8 @@ import { authSchema } from '../schemas/auth.schema';
 import { AuthContext } from '../context/AuthContext';
 import { Main, SubmitButton } from '../styles/Auth/auth';
 import Link from 'next/link';
+import { InfinitySpin } from 'react-loader-spinner';
+import { theme } from '../styles/Theme';
 
 
 export default function Login() {
@@ -18,10 +20,13 @@ export default function Login() {
 		criteriaMode: 'all'
 	});
 
+	const [IsLoading, setIsLoading] = useState(false);
 	const {signin} = useContext(AuthContext);
 	
 	
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
+		setIsLoading(true);
+		
 		try {
 			await signin({username: data.username, password: data.password});
 			toast.success('Welcome to WALLET_CASH');
@@ -30,6 +35,8 @@ export default function Login() {
 			console.log(e);
 			toast.error(e.response.data.message);
 			toast.error('Could not login user');
+		}finally {
+			setIsLoading(false);
 		}
 
 		
@@ -59,7 +66,16 @@ export default function Login() {
 					<p>password</p>
 					<input type="password" {...register('password')}/>
 				</article>
-				<SubmitButton type="submit">Send</SubmitButton>
+				<SubmitButton type="submit" disabled={IsLoading} isLoading={IsLoading}>
+					{
+						!IsLoading 
+							? 'Send'
+							: <InfinitySpin 
+								width='100'
+								color={theme.colors.primary}
+							/>
+					}
+				</SubmitButton>
 			</form>
 			<Link href='/signup'>
 				<section className='link'>Create account</section>
