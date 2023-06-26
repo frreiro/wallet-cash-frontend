@@ -24,7 +24,7 @@ export default function Transfer() {
 
 export const getServerSideProps: GetServerSideProps =  async (context) => {
 
-	const { 'ng-cash-token': token} = parseCookies(context);
+	const { 'wallet-cash-token': token} = parseCookies(context);
 	if(!token){
 		return{
 			redirect: {
