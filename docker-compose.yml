@@ -1,6 +1,6 @@
 services:
-  ng-cash-frontedn-application: 
-    container_name: ng-cash-frontend
+  wallet-cash-frontedn-application: 
+    container_name: wallet-cash-frontend
     build: 
       context: .
       dockerfile: Dockerfile

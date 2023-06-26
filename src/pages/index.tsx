@@ -24,7 +24,7 @@ export default function Login() {
 	const onFormSubmit: SubmitHandler<User> = async  (data) => {
 		try {
 			await signin({username: data.username, password: data.password});
-			toast.success('Welcome to NG_CASH');
+			toast.success('Welcome to WALLET_CASH');
 			Router.push('/wallet');
 		} catch (e:any) {
 			console.log(e);
@@ -43,7 +43,7 @@ export default function Login() {
 	return (
 		<Main >
 			<Head>
-				<title>NG - Login</title>
+				<title>wallet - Login</title>
 			</Head>
 			<h1>Login</h1>
 

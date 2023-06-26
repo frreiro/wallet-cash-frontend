@@ -43,7 +43,7 @@ export default function Siginup() {
 	return (
 		<Main >
 			<Head>
-				<title>NG - Login</title>
+				<title>wallet - Login</title>
 			</Head>
 			<h1>Register</h1>
 

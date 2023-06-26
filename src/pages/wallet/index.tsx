@@ -17,7 +17,7 @@ import { ITransaction } from '../../interfaces/Transactions';
 export default function Wallet({accountData, transactionsData}: {accountData: AccountInfo, transactionsData: ITransaction[]} ){
 
 	const logOut = () => {
-		destroyCookie(undefined, 'ng-cash-token');
+		destroyCookie(undefined, 'wallet-cash-token');
 		Router.push('/');
 	};
 	
@@ -41,7 +41,7 @@ export default function Wallet({accountData, transactionsData}: {accountData: Ac
 	
 export const getServerSideProps: GetServerSideProps =  async (context) => {
 	
-	const { 'ng-cash-token': token} = parseCookies(context);
+	const { 'wallet-cash-token': token} = parseCookies(context);
 	if(!token){
 		return{
 			redirect: {

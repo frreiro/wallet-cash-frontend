@@ -1,14 +1,14 @@
 <div align="center" >
-  <img width="150px" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b0.svg" alt="ng-logo" width="400">
+  <img width="150px" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b0.svg" alt="wallet-logo" width="400">
   <br>
   <br>
-  <h1>NG Cash - Frontend</h1>
+  <h1>Wallet Cash - Frontend</h1>
 </div>
 
 ## 📝 Description
 
 
-NG.cash is a private web wallet application that allows users to, create an account and make transactions between themselves, this project is a challenge for a job at NG.CASH.
+wallet.cash is a private web wallet application that allows users to, create an account and make transactions between themselves
 
 ## 🚀 Technologies and Libraries
 
@@ -28,17 +28,17 @@ Clone the repository.
 
 ```bash
 # https
-$ git clone https://github.com/frreiro/ng-cash-frontend
+$ git clone https://github.com/frreiro/wallet-cash-frontend
 # ssh
-$ git clone git@github.com:frreiro/ng-cash-frontend.git
+$ git clone git@github.com:frreiro/wallet-cash-frontend.git
 ```
 
 Install the dependencies.
 
 ```bash
-$ cd ng-cash-frontend && npm install
+$ cd wallet-cash-frontend && npm install
 #or
-$ cd ng-cash-frontend &&  yarn
+$ cd wallet-cash-frontend &&  yarn
 ```
 
 ## 🚀 Usage
@@ -47,7 +47,7 @@ This project in local mode need the backend up to work, it will use the followin
  - http://localhost:3000 -> where the frontend will be up
  - http://localhost:5000 -> backend on, used for requests
 
-[Link for backend here](https://github.com/frreiro/ng-cash-backend) 
+[Link for backend here](https://github.com/frreiro/wallet-cash-backend) 
 
 ### Development mode
 

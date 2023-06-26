@@ -16,7 +16,7 @@ const AuthProvider: React.FC<PropsWithChildren> = ({children}) => {
 			password
 		});
 
-		setCookie(undefined, 'ng-cash-token', token,{ 
+		setCookie(undefined, 'wallet-cash-token', token,{ 
 			maxAge: 60 * 60 * 24 // 24h
 		});
 	}
