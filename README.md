@@ -2,13 +2,13 @@
   <img width="150px" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b0.svg" alt="wallet-logo" width="400">
   <br>
   <br>
-  <h1>wallet Cash - Frontend</h1>
+  <h1>Wallet Cash - Frontend</h1>
 </div>
 
 ## 📝 Description
 
 
-wallet.cash is a private web wallet application that allows users to, create an account and make transactions between themselves, this project is a challenge for a job at wallet.CASH.
+wallet.cash is a private web wallet application that allows users to, create an account and make transactions between themselves
 
 ## 🚀 Technologies and Libraries
 
