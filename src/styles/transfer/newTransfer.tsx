@@ -40,17 +40,6 @@ const BannerTransfer = styled.div`
 		justify-content: center;
 	}
 
-	button{
-		width: 105px;
-		height: 41px;
-		outline: none;
-		border-radius: 5px;
-		background-color:  ${props => props.theme.colors.secondary};
-		color:  ${props => props.theme.colors.primary};
-		font-family: ${props => props.theme.font.family.primary};
-		font-size: ${props => props.theme.font.sizes.mobile.small};
-	}
-
 `;
 
 

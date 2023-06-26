@@ -7,12 +7,19 @@ import { BannerNewTransaferContainer, BannerTransfer, HolderInput } from '../sty
 import { Banner3D } from './banner3D';
 import { cashParser } from '../utils/cashParser';
 import { createTransaction } from '../services/transfer.api';
+import { InfinitySpin } from 'react-loader-spinner';
+import { theme } from '../styles/Theme';
+import { useState } from 'react';
+import { SubmitButton } from './SubmitButton';
 
 const NewTransfer: React.FC = () => {
 	const {register,handleSubmit, setValue} = useForm<TransferForm>({
 		resolver: joiResolver(transferSchema),
 		criteriaMode: 'all'
 	});
+
+	const [IsLoading, setIsLoading] = useState(false);
+
 
 	const normalizeCashFormat = (value: string | undefined) => {
 		const number = Number(value?.replace(/[\D]+/g, ''));
@@ -27,6 +34,7 @@ const NewTransfer: React.FC = () => {
 
 	const makeTransfer: SubmitHandler<TransferForm> = async (data) => {
 		const {inputNumber: transferValue} = normalizeCashFormat(data.value);
+		setIsLoading(true);
 		try {
 			await createTransaction({
 				username: data.username,
@@ -38,6 +46,10 @@ const NewTransfer: React.FC = () => {
 		} catch (e: any) {
 			console.log(e);
 			toast.error(e.response.data.message);
+		}
+		finally{
+			setIsLoading(false);
+			
 		}
 	};
 
@@ -78,7 +90,7 @@ const NewTransfer: React.FC = () => {
 						</HolderInput>
 
 						<div className='div_button'>
-							<button type='submit'>transfer</button>
+							<SubmitButton text={'transfer'} isLoading={IsLoading}/>
 						</div>
 					</form>
 				</BannerTransfer>

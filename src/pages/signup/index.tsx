@@ -6,11 +6,12 @@ import {toast} from 'react-toastify';
 import { useRouter } from 'next/router';
 import { authSchema } from '../../schemas/auth.schema';
 import { User } from '../../interfaces/User';
-import { Main, SubmitButton } from '../../styles/Auth/auth';
+import { Main } from '../../styles/Auth/auth';
 import { createUser } from '../../services/user.api';
 import Link from 'next/link';
 import { InfinitySpin } from 'react-loader-spinner';
 import { theme } from '../../styles/Theme';
+import { SubmitButton } from '../../components/SubmitButton';
 
 
 export default function Siginup() {
@@ -65,16 +66,7 @@ export default function Siginup() {
 					<p>password</p>
 					<input type="password" {...register('password')}/>
 				</article>
-				<SubmitButton type="submit" disabled={IsLoading} isLoading={IsLoading}>
-					{
-						!IsLoading 
-							? 'Create'
-							: <InfinitySpin 
-								width='100'
-								color={theme.colors.primary}
-							/>
-					}
-				</SubmitButton>
+				<SubmitButton text={'Create'} isLoading={IsLoading} marginTop={68}/>
 			</form>
 			<Link href='/'>
 				<section className='link'>Login here</section>
