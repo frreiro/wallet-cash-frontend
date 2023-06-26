@@ -10,8 +10,6 @@ import { authSchema } from '../schemas/auth.schema';
 import { AuthContext } from '../context/AuthContext';
 import { Main } from '../styles/Auth/auth';
 import Link from 'next/link';
-import { InfinitySpin } from 'react-loader-spinner';
-import { theme } from '../styles/Theme';
 import { SubmitButton } from '../components/SubmitButton';
 
 

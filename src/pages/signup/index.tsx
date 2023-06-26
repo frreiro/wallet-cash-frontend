@@ -9,8 +9,6 @@ import { User } from '../../interfaces/User';
 import { Main } from '../../styles/Auth/auth';
 import { createUser } from '../../services/user.api';
 import Link from 'next/link';
-import { InfinitySpin } from 'react-loader-spinner';
-import { theme } from '../../styles/Theme';
 import { SubmitButton } from '../../components/SubmitButton';
 
 

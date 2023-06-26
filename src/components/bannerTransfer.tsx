@@ -7,10 +7,9 @@ import { BannerNewTransaferContainer, BannerTransfer, HolderInput } from '../sty
 import { Banner3D } from './banner3D';
 import { cashParser } from '../utils/cashParser';
 import { createTransaction } from '../services/transfer.api';
-import { InfinitySpin } from 'react-loader-spinner';
-import { theme } from '../styles/Theme';
 import { useState } from 'react';
 import { SubmitButton } from './SubmitButton';
+import Router from 'next/router';
 
 const NewTransfer: React.FC = () => {
 	const {register,handleSubmit, setValue} = useForm<TransferForm>({
@@ -43,6 +42,7 @@ const NewTransfer: React.FC = () => {
 			toast.success('Transfer done');
 			setValue('username', '');
 			setValue('value', '');
+			Router.push('/wallet');
 		} catch (e: any) {
 			console.log(e);
 			toast.error(e.response.data.message);
